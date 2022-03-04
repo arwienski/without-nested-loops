@@ -10,7 +10,7 @@ function matrix(n: number) {
     
     for (let i = 0; i < n * n; i++) {
         if (i < n)
-        M[i] = new Array<number>(n);
+        M[i] = new Array<number>(n); // добавил в один цикл без методов fill и т.д., чтобы уложиться в 81 итерацию цикла
 
         M[y][x]=i+1;
 
@@ -21,7 +21,8 @@ function matrix(n: number) {
         else if ((y === n - endY - 1) && (x > startX))
             x--;
         else y--;
-
+        
+        // когда прошли периметр, заходим внутрь:
         if ((y === startY + 1) && (x === startX) && (startX != n - endX - 1)) {
             startX++;
             startY++;
